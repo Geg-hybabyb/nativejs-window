@@ -13759,9 +13759,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-const form = () => {
-  console.log(document.querySelectorAll('.main_form'));
-};
+const form = () => {};
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (form);
 
 /***/ }),
@@ -13830,8 +13828,8 @@ __webpack_require__.r(__webpack_exports__);
 const tabs = () => {
   function changeActiveTab(blockSelector, linkSelector, contentSelector, classActive) {
     const tabsBlock = document.querySelectorAll(blockSelector),
-      tabsLink = document.querySelectorAll(linkSelector);
-    const tabContent = document.querySelectorAll(contentSelector);
+      tabsLink = document.querySelectorAll(linkSelector),
+      tabContent = document.querySelectorAll(contentSelector);
     tabsBlock.forEach((item, i) => {
       item.addEventListener('click', () => {
         tabsLink.forEach((elem, j) => {
@@ -13849,6 +13847,41 @@ const tabs = () => {
   changeActiveTab('.no_click', '.no_click', '.decoration_content > div > div', 'after_click');
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (tabs);
+
+/***/ }),
+
+/***/ "./src/js/modules/timer.js":
+/*!*********************************!*\
+  !*** ./src/js/modules/timer.js ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+const timer = () => {
+  const deadline = '2025-04-12';
+  function getZero(num) {
+    if (num >= 10) {
+      return num;
+    } else {
+      return `0${num}`;
+    }
+  }
+  function updataTimer() {
+    const t = Date.parse(new Date(deadline)) - Date.parse(new Date());
+    const days = Math.floor(t / 24 / 60 / 60 / 1000);
+    const hours = Math.floor(t / 60 / 60 / 1000 % 24);
+    const minutes = Math.floor(t / 60 / 1000 % 60);
+    const seconds = Math.floor(t / 1000 % 60);
+    document.querySelector('#days').textContent = getZero(days), document.querySelector('#hours').textContent = getZero(hours), document.querySelector('#minutes').textContent = getZero(minutes), document.querySelector('#seconds').textContent = getZero(seconds);
+  }
+  updataTimer();
+  setInterval(updataTimer, 1000);
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (timer);
 
 /***/ }),
 
@@ -14019,6 +14052,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_modal__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/modal */ "./src/js/modules/modal.js");
 /* harmony import */ var _modules_tabs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/tabs */ "./src/js/modules/tabs.js");
 /* harmony import */ var _modules_form__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/form */ "./src/js/modules/form.js");
+/* harmony import */ var _modules_timer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/timer */ "./src/js/modules/timer.js");
+
 
 
 
@@ -14027,6 +14062,7 @@ document.addEventListener('DOMContentLoaded', () => {
   (0,_modules_modal__WEBPACK_IMPORTED_MODULE_1__["default"])();
   (0,_modules_tabs__WEBPACK_IMPORTED_MODULE_2__["default"])();
   (0,_modules_form__WEBPACK_IMPORTED_MODULE_3__["default"])();
+  (0,_modules_timer__WEBPACK_IMPORTED_MODULE_4__["default"])();
 });
 })();
 

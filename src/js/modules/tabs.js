@@ -1,9 +1,8 @@
 const tabs = () => {
     function changeActiveTab (blockSelector, linkSelector, contentSelector, classActive) {
         const tabsBlock = document.querySelectorAll(blockSelector),
-              tabsLink = document.querySelectorAll(linkSelector)
-
-        const tabContent = document.querySelectorAll(contentSelector);
+              tabsLink = document.querySelectorAll(linkSelector),
+              tabContent = document.querySelectorAll(contentSelector);
 
         tabsBlock.forEach((item, i) => {
             item.addEventListener('click', () => {
