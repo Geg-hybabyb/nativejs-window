@@ -11,11 +11,18 @@ const timer = () => {
 
     function updataTimer() {
         const t = Date.parse(new Date(deadline)) - Date.parse(new Date());
-
-        const days = Math.floor(t / 24 / 60 / 60 / 1000)
-        const hours = Math.floor((t / 60 / 60 / 1000) % 24)
-        const minutes = Math.floor((t / 60 / 1000) % 60)
-        const seconds = Math.floor((t / 1000) % 60)
+        let days, hours, minutes, seconds;
+        if (t <= 0) {
+            days = 0;
+            hours = 0;
+            minutes = 0;
+            seconds = 0;
+        } else {
+            days = Math.floor(t / 24 / 60 / 60 / 1000)
+            hours = Math.floor((t / 60 / 60 / 1000) % 24)
+            minutes = Math.floor((t / 60 / 1000) % 60)
+            seconds = Math.floor((t / 1000) % 60)
+        }
 
         document.querySelector('#days').textContent = getZero(days),
         document.querySelector('#hours').textContent = getZero(hours),

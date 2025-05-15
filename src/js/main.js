@@ -1,13 +1,17 @@
 import './slider';
 import modal from './modules/modal';
 import tabs from './modules/tabs';
-import form from './modules/form';
+import forms from './modules/forms';
 import timer from './modules/timer';
+import changeState from './modules/changeState';
 
 document.addEventListener('DOMContentLoaded', () => {
 
+    let formState = {};
+
+    changeState(formState)
     modal();
     tabs();
-    form();
+    forms(formState);
     timer();
 })
